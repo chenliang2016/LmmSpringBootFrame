@@ -1,5 +1,6 @@
 package com.lmm.order.controller;
 
+import com.lmm.common.auth.Authorize;
 import com.lmm.order.dto.*;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class TestController {
     @Autowired
     TestService testService;
 
+    @Authorize(value = {
+
+    })
     @GetMapping(path = "/test")
     @ApiOperation(value = "post请求调用示例", notes = "invokePost说明", httpMethod = "POST")
     public TestResponse testList() {
