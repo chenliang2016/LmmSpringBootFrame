@@ -11,8 +11,8 @@
         <version>1.0</version>
     </parent>
  
-    <artifactId>order-svc</artifactId>
-    <name>lmm-order-Svc</name>
+    <artifactId>base-svc</artifactId>
+    <name>lmm-base-Svc</name>
     <version>1.0.0</version>
     <url></url>
  
@@ -44,12 +44,12 @@
         </dependency>
         <dependency>
             <groupId>com.lmm</groupId>
-            <artifactId>order-api</artifactId>
+            <artifactId>base-api</artifactId>
             <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>com.lmm</groupId>
-            <artifactId>order-mbg</artifactId>
+            <artifactId>base-mbg</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>
