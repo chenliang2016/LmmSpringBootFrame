@@ -20,9 +20,9 @@
  
     <modules>
         <module>common-lib</module>
-        <module>order-api</module>
-        <module>order-svc</module>
-        <module>order-mbg</module>
+        <module>base-api</module>
+        <module>base-svc</module>
+        <module>base-mbg</module>
     </modules>
 
     <dependencyManagement>
