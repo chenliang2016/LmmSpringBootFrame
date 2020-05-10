@@ -9,10 +9,24 @@
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
         <property name="javaFileEncoding" value="UTF-8"/>
+        <!--        解决生成mapper追加的问题 (变成覆盖)-->
+        <plugin type="com.lmm.base.OverMapperIsMergeablePlugin"/>
         <!-- 为模型生成序列化方法-->
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 为生成的Java模型创建一个toString方法 -->
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <!-- 开启支持limit分页  -->
+        <plugin type="com.lmm.base.PaginationPlugin"/>
+
+        <!-- 查询单条数据插件 -->
+        <plugin type="com.lmm.base.SelectOneByExamplePlugin"/>
+        <!-- MySQL分页插件 -->
+        <plugin type="com.lmm.base.LimitPlugin"/>
+        <!-- 批量插入插件 -->
+        <plugin type="com.lmm.base.BatchInsertPlugin"/>
+        <!-- 数据Model属性对应Column获取插件 -->
+        <plugin type="com.lmm.base.ModelColumnPlugin"/>
+
         <commentGenerator type="com.lmm.base.CommentGenerator">
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>
@@ -26,14 +40,15 @@
                         password="${jdbc.password}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.lmm.base.model" targetProject="order-mbg/src/main/java"/>
+        <javaModelGenerator targetPackage="com.lmm.base.model" targetProject="base-mbg/src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.lmm.base.mapper" targetProject="order-mbg/src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.lmm.base.mapper" targetProject="base-mbg/src/main/resources"/>
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.lmm.base.mapper"
-                             targetProject="order-mbg/src/main/java"/>
+                             targetProject="base-mbg/src/main/java"/>
         <!--生成全部表tableName设为%-->
         <table tableName="%">
+            <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
